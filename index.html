@@ -45,7 +45,7 @@
           <li>誰に頼めばいいかわからない</li>
         </ul>
       </div>
-      <div class="problem_bar fade">
+      <div class="problem_bar">
         <p>で…そのまま放置される</p>
       </div>
     </div>
@@ -154,7 +154,18 @@
       });
     }, { threshold: 0.10 });
 
-    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade, .problem_bar').forEach(el => observer.observe(el));
+
+    const fixedBtn = document.querySelector('.cta_fixed_btn');
+    const footer = document.querySelector('.footer');
+
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        fixedBtn.classList.toggle('at-footer', entry.isIntersecting);
+      });
+    });
+
+    footerObserver.observe(footer);
   </script>
 
 </body>
