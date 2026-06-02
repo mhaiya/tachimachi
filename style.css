@@ -165,6 +165,15 @@ img { max-width: 100%; display: block; }
   width: 100%;
   background: var(--dark);
   padding: 4px;
+  position: relative;
+  transform: translateX(-60px);
+  opacity: 0;
+  transition: transform 0.7s ease 0.5s, opacity 0.7s ease 0.5s;
+}
+
+.problem_bar.visible {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .problem_bar p {
@@ -400,7 +409,7 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  min-height: clamp(480px, 56.25vw, 720px);
+  min-height: calc(100vh - 70px);
   justify-content: center;
 }
 
@@ -553,6 +562,14 @@ img { max-width: 100%; display: block; }
     margin-top: -150px;
   }
 }
+@media (max-width: 710px) {
+  .cta_items {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+}
 
 @media (max-width: 600px) {
   .features_content {
@@ -599,6 +616,19 @@ img { max-width: 100%; display: block; }
   .cta_fixed_btn img {
     width: 20px;
     height: 20px;
+  }
+
+  .cta_fixed_btn {
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .cta_fixed_btn.at-footer {
+    background: #ffffff;
+    color: var(--black);
+  }
+
+  .cta_fixed_btn.at-footer img {
+    filter: brightness(0);
   }
 
   /* フッターと固定ボタンが被らないよう余白 */
@@ -652,7 +682,9 @@ img { max-width: 100%; display: block; }
     width: 100%;
     margin: 0 0 16px 0;
     padding: 28px 24px;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     gap: 20px;
   }
 
