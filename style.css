@@ -40,6 +40,7 @@ img { max-width: 100%; display: block; }
 .header_logo img {
   width: clamp(140px, 16.25vw, 208px);
   height: auto;
+
 }
 
 /* ===== メイン ===== */
@@ -351,6 +352,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   line-height: 140%;
   margin-bottom: 10px;
+  word-break: keep-all;
 }
 
 .features_detail_body {
